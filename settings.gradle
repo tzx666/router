@@ -1,0 +1,5 @@
+include ':router-processer'
+include ':router-api'
+include ':router-annotation'
+include ':app'
+rootProject.name = "Router"
