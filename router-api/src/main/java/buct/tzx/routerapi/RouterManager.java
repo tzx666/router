@@ -19,5 +19,4 @@ public class RouterManager {
     public Map<String, RouterInfo> getRouterMap() {
         return RouterMap;
     }
-
 }

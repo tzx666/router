@@ -1,5 +1,7 @@
 package buct.tzx.routerapi;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -55,7 +57,7 @@ public class BuctRouter {
             e.printStackTrace();
         }
     }
-    public void naviagtion(Context context,String path){
+    public Object naviagtion(Activity context, String path){
         if(mIsInitialized){
             RouterInfo info = _manager.getRouterMap().getOrDefault(path,null);
             if(info==null){
@@ -70,7 +72,13 @@ public class BuctRouter {
                         e.printStackTrace();
                     }
                 }else if(info.getType()== RouterType.FRAGMENT){
-
+                    FragmentManager fragmentManager = context.getFragmentManager();
+                    try {
+                        Object targetfragment = Class.forName(info.getTargetRoute()).getConstructor().newInstance();
+                        return targetfragment;
+                    } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | ClassNotFoundException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
                 }else {
                     Toast.makeText(context,"暂不支持此类型跳转",Toast.LENGTH_SHORT).show();
                 }
@@ -78,6 +86,7 @@ public class BuctRouter {
         }else {
             throw new IllegalStateException("还没有初始化！");
         }
+        return null;
     }
     private void runInMainThread(Runnable runnable) {
         if (Looper.getMainLooper().getThread() != Thread.currentThread()) {
@@ -85,5 +94,9 @@ public class BuctRouter {
         } else {
             runnable.run();
         }
+    }
+    private void Filter(String path){
+        String[] pathPraser = path.split("\\?");
+
     }
 }

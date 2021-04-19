@@ -50,7 +50,7 @@ public class PathProcessor extends AbstractProcessor {
     public static final String FRAGMENT_V4 = "android.support.v4.app.Fragment";
     public static final String SERVICE = "android.app.Service";
     public static final String PARCELABLE = "android.os.Parcelable";
-    public static final String KEY_MODULE_NAME = "AROUTER_MODULE_NAME";
+    public static final String KEY_MODULE_NAME = "ROUTER_MODULE_NAME";
     String moduleName = "";
 
     @Override
@@ -72,7 +72,7 @@ public class PathProcessor extends AbstractProcessor {
 
             System.out.println("The user has configuration the module name, it was [" + moduleName + "]");
         } else {
-            throw new RuntimeException("Router::Processor >>> No module name, for more information, look at gradle log.");
+            throw new RuntimeException("No module name");
         }
     }
 
