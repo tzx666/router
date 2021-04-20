@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             BuctRouter.getInstance().init(this)
         }
         btn1.setOnClickListener {
-            BuctRouter.getInstance().naviagtion(this,"/app/second")
+            BuctRouter.getInstance().naviagtion(this,"/app/second?a=2")
         }
     }
 }
