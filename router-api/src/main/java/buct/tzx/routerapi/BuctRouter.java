@@ -48,6 +48,7 @@ public class BuctRouter {
     }
     public void init(Context context){
         _manager = RouterManager.getInstance();
+        long startime = System.currentTimeMillis();
         try {
             this.context =context;
             mHandler = new Handler(Looper.getMainLooper());
@@ -60,6 +61,9 @@ public class BuctRouter {
             mIsInitialized =true;
         } catch (PackageManager.NameNotFoundException | IOException | InterruptedException | ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
+        } finally {
+            Log.d("TAG123", "手动注册耗时"+(System.currentTimeMillis()-startime));
+
         }
     }
     // 对于activity 直接通过intent跳转
@@ -85,10 +89,11 @@ public class BuctRouter {
                 }
                 if(info.getType()== RouterType.ACTIVITY){
                     try {
-                        Intent intent =new Intent(context, Class.forName(info.getTargetRoute()));
+                        Class<?> targetClass = Class.forName(info.getTargetRoute());
+                        Intent intent =new Intent(context, targetClass);
                         intent.putExtra("buctrouter",bundle);
                         // Navigation in main looper.
-                        runInMainThread(() -> ActivityCompat.startActivity(context,intent,null));
+                        runInMainThread(() -> context.startActivity(intent));
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     }

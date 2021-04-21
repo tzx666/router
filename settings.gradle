@@ -1,3 +1,4 @@
+include ':javademo'
 include ':router-processer'
 include ':router-api'
 include ':router-annotation'

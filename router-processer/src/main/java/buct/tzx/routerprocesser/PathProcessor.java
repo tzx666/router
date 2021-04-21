@@ -156,7 +156,7 @@ public class PathProcessor extends AbstractProcessor {
 
             for (RouterInfo info : routerInfoList) {
                 System.out.println("添加字段" + info.getPath());
-                loadIntoMethodOfRootBuilder.addStatement("routes.put($S, new $T($S,$T." + info.getType() + ",$S));", info.getPath(), router, info.getTargetRoute(), ClassName.get(RouterType.class), info.getPath());
+                loadIntoMethodOfRootBuilder.addStatement("routes.put($S, new $T($S,$T." + info.getType() + ",$S))", info.getPath(), router, info.getTargetRoute(), ClassName.get(RouterType.class), info.getPath());
             }
             try {
                 JavaFile.builder("buct.tzx.routergenerated",
@@ -170,6 +170,7 @@ public class PathProcessor extends AbstractProcessor {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println("注解处理耗时"+(System.currentTimeMillis()-starttime));
             return true;
         }
         return false;

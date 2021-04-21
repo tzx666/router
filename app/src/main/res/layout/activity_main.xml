@@ -24,4 +24,22 @@
         android:text="同模块跳转测试"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn" />
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn2"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="跨模块跳转测试"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn1" />
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn3"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="自动跨模块跳转测试"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
