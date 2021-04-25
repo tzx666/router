@@ -18,9 +18,10 @@ public class RouterManager {
         }
     }
     private static void register(IPath autoFile){
+        Log.d("tzx", "register: ");
         autoFile.injectPath(RouterMap);
     }
-    private void autoInjectIntoMap(){
+    public static void autoInjectIntoMap(){
         // 通过asm字节码自动注入，like
         // register("com.toos.appprocessor");
         //etc

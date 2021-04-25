@@ -53,6 +53,78 @@ public class PathProcessor extends AbstractProcessor {
     public static final String KEY_MODULE_NAME = "ROUTER_MODULE_NAME";
     String moduleName = "";
 
+    public Types getmTypeUtils() {
+        return mTypeUtils;
+    }
+
+    public void setmTypeUtils(Types mTypeUtils) {
+        this.mTypeUtils = mTypeUtils;
+    }
+
+    public Elements getmElementUtils() {
+        return mElementUtils;
+    }
+
+    public void setmElementUtils(Elements mElementUtils) {
+        this.mElementUtils = mElementUtils;
+    }
+
+    public Filer getmFiler() {
+        return mFiler;
+    }
+
+    public void setmFiler(Filer mFiler) {
+        this.mFiler = mFiler;
+    }
+
+    public Messager getmMessager() {
+        return mMessager;
+    }
+
+    public void setmMessager(Messager mMessager) {
+        this.mMessager = mMessager;
+    }
+
+    public List<RouterInfo> getRouterInfoList() {
+        return routerInfoList;
+    }
+
+    public void setRouterInfoList(List<RouterInfo> routerInfoList) {
+        this.routerInfoList = routerInfoList;
+    }
+
+    public static String getACTIVITY() {
+        return ACTIVITY;
+    }
+
+    public static String getFRAGMENT() {
+        return FRAGMENT;
+    }
+
+    public static String getFragmentV4() {
+        return FRAGMENT_V4;
+    }
+
+    public static String getSERVICE() {
+        return SERVICE;
+    }
+
+    public static String getPARCELABLE() {
+        return PARCELABLE;
+    }
+
+    public static String getKeyModuleName() {
+        return KEY_MODULE_NAME;
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
@@ -175,5 +247,4 @@ public class PathProcessor extends AbstractProcessor {
         }
         return false;
     }
-
 }

@@ -31,9 +31,50 @@ public class BuctRouter {
     private RouterManager _manager;
     private Context context;
     private static Handler mHandler;
+    private boolean isauto =true;
     // 判断是否进行了初始化
     private boolean mIsInitialized = false;
     private BuctRouter() {
+    }
+
+    public static BuctRouter getRouter() {
+        return router;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public static Handler getmHandler() {
+        return mHandler;
+    }
+
+    public RouterManager get_manager() {
+        return _manager;
+    }
+
+    public void set_manager(RouterManager _manager) {
+        this._manager = _manager;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public static void setmHandler(Handler mHandler) {
+        BuctRouter.mHandler = mHandler;
+    }
+
+    public boolean ismIsInitialized() {
+        return mIsInitialized;
+    }
+
+    public void setmIsInitialized(boolean mIsInitialized) {
+        this.mIsInitialized = mIsInitialized;
+    }
+
+    public static void setRouter(BuctRouter router) {
+        BuctRouter.router = router;
     }
 
     public static BuctRouter getInstance() {
@@ -52,12 +93,18 @@ public class BuctRouter {
         try {
             this.context =context;
             mHandler = new Handler(Looper.getMainLooper());
-            Set<String>classlist = ClassUtil.getFileNameByPackageName(context,"buct.tzx.routergenerated");
-            Log.d("TAG123", "init: "+classlist.size());
-            for(String clz:classlist){
-                Log.d("TAG123", "init: "+clz);
-                ((IPath)Class.forName(clz).getConstructor().newInstance()).injectPath(_manager.getRouterMap());
+            if(isauto){
+                RouterManager.autoInjectIntoMap();
+                Log.d("TAG123", "init: "+_manager.getRouterMap().size());
+            } else{
+                Set<String>classlist = ClassUtil.getFileNameByPackageName(context,"buct.tzx.routergenerated");
+                Log.d("TAG123", "init: "+classlist.size());
+                for(String clz:classlist){
+                    Log.d("TAG123", "init: "+clz);
+                    ((IPath)Class.forName(clz).getConstructor().newInstance()).injectPath(_manager.getRouterMap());
+                }
             }
+
             mIsInitialized =true;
         } catch (PackageManager.NameNotFoundException | IOException | InterruptedException | ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();

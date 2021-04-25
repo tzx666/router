@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
-
+//apply plugin: 'buct.tzx.buildtools'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

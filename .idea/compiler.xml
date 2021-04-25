@@ -22,6 +22,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="Router.app" target="1.8" />
+      <module name="Router.buildSrc" target="1.8" />
       <module name="Router.javademo" target="1.8" />
       <module name="Router.router-api" target="1.8" />
       <module name="Router.router-processer" target="1.8" />

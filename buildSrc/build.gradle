@@ -1,0 +1,23 @@
+plugins {
+    id ('groovy')
+    id 'org.jetbrains.kotlin.jvm' version "1.4.31"
+}
+ext {
+    kotlin_version = "1.4.31"
+    bintrayName = 'auto-service'
+    artifact = bintrayName
+    libraryName = 'register gradle plugin'
+    libraryDescription = 'A gradle plugin used for router route map register'
+    libraryVersion = "0.0.1"
+}
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.1.3'
+}
