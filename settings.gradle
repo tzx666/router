@@ -1,6 +1,7 @@
 include ':javademo'
-include ':router-processer'
-include ':router-api'
-include ':router-annotation'
+//include ':router-processer'
+//include ':router-api'
+//include ':router-annotation'
 include ':app'
+//include 'buildSrc1'
 rootProject.name = "Router"

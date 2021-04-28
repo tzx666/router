@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import buct.tzx.javademo.MainActivity1
 import buct.tzx.javademo.MainActivity3
 import buct.tzx.javademo.MainActivity4
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         var btn2 = findViewById(R.id.btn2) as Button
         var btn3 = findViewById(R.id.btn3) as Button
         btn.setOnClickListener {
+            var cost =System.currentTimeMillis()
             BuctRouter.getInstance().init(this)
+            Toast.makeText(this,(System.currentTimeMillis()-cost).toString(),Toast.LENGTH_SHORT).show()
         }
         btn1.setOnClickListener {
             BuctRouter.getInstance().naviagtion(this,"/app/second?a=2")

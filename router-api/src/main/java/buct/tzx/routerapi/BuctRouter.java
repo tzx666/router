@@ -31,7 +31,7 @@ public class BuctRouter {
     private RouterManager _manager;
     private Context context;
     private static Handler mHandler;
-    private boolean isauto =true;
+    private boolean isauto =false;
     // 判断是否进行了初始化
     private boolean mIsInitialized = false;
     private BuctRouter() {

@@ -12,11 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/javademo" />
-            <option value="$PROJECT_DIR$/router-annotation" />
-            <option value="$PROJECT_DIR$/router-api" />
-            <option value="$PROJECT_DIR$/router-processer" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
