@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         var btn3 = findViewById(R.id.btn3) as Button
         btn.setOnClickListener {
             var cost =System.currentTimeMillis()
+            BuctRouter.getInstance().isIsauto = true
             BuctRouter.getInstance().init(this)
             Toast.makeText(this,(System.currentTimeMillis()-cost).toString(),Toast.LENGTH_SHORT).show()
         }

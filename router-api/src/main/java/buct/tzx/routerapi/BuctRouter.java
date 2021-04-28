@@ -32,6 +32,15 @@ public class BuctRouter {
     private Context context;
     private static Handler mHandler;
     private boolean isauto =false;
+
+    public boolean isIsauto() {
+        return isauto;
+    }
+
+    public void setIsauto(boolean isauto) {
+        this.isauto = isauto;
+    }
+
     // 判断是否进行了初始化
     private boolean mIsInitialized = false;
     private BuctRouter() {
